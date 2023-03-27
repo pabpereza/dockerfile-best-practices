@@ -24,6 +24,10 @@ RUN /venv/bin/conda-unpack
 # base image since the Conda env also includes Python interpreter
 FROM debian:stable-slim AS runtime
 
+# Create a non-root user
+RUN useradd -m appuser
+USER appuser
+
 # Copy /venv from the previous stage
 COPY --from=build /venv /venv
 
