@@ -1,7 +1,6 @@
 FROM alpine AS builder
 
 # Install dependencies
-RUN apk update
 RUN apk add openjdk11 
 
 # Move code
