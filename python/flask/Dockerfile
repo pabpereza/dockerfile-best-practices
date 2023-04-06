@@ -21,7 +21,7 @@ RUN useradd -ms /bin/bash apiuser
 USER apiuser
 
 # Copy the Python dependencies from the builder image and set the PATH
-COPY --from=builder /root/.local /home/apiuser/.local
+COPY --chown=apiuser --from=builder /root/.local /home/apiuser/.local
 ENV PATH=/home/apiuser/.local/bin:$PATH
 
 # Run the flask application
