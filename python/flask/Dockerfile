@@ -11,14 +11,13 @@ RUN pip install --user -r requirements.txt
 
 FROM python:slim
 
-
-#Configure path and python environment
-WORKDIR /workspace
-COPY app.py .
-
 # Create a user to run the application with bash shell and home directory
 RUN useradd -ms /bin/bash apiuser 
 USER apiuser
+
+#Create workdir and copy the code
+WORKDIR /workspace
+COPY app.py .
 
 # Copy the Python dependencies from the builder image and set the PATH
 COPY --chown=apiuser --from=builder /root/.local /home/apiuser/.local
