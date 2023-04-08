@@ -15,9 +15,9 @@ FROM python:slim
 RUN useradd -ms /bin/bash apiuser 
 USER apiuser
 
-#Create workdir and copy the code
+#Create workdir and copy all the code
 WORKDIR /workspace
-COPY app.py .
+COPY --chown=apiuser app.py .
 
 # Copy the Python dependencies from the builder image and set the PATH
 COPY --chown=apiuser --from=builder /root/.local /home/apiuser/.local
