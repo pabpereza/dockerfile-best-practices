@@ -5,7 +5,7 @@ FROM maven:3.8.1-openjdk-11
 WORKDIR /app
 
 # Copy the entire project source code to the working directory
-COPY . .
+COPY pom.xml .
 
 # Download all dependencies defined in the pom.xml file
 RUN mvn dependency:go-offline
@@ -13,6 +13,7 @@ RUN mvn dependency:go-offline
 # Build the application using Maven
 RUN mvn package
 
+COPY src/ .
 
 # Set the command to run the application when the container starts
 CMD ["java", "-jar", "App.jar"]

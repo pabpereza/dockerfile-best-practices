@@ -11,7 +11,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 # Copy the entire project source code to the working directory
-COPY src/ ./src/
+COPY src/ src/
 
 # Build the application using Maven
 RUN mvn package
@@ -22,8 +22,11 @@ FROM openjdk:11-jre-slim
 # Set the working directory to /app
 WORKDIR /app
 
+RUN useradd -ms /bin/bash apiuser 
+USER apiuser
+
 # Copy the executable JAR file from the build stage to the working directory
-COPY --from=build /app/target/App.jar .
+COPY --chown=apiuser --from=build target/App.jar .
 
 # Set the command to run the application when the container starts
 CMD ["java", "-jar", "my-app.jar"]

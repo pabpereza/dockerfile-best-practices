@@ -10,7 +10,6 @@ COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
 
-
 FROM python:slim
 
 #Configure path and python environment

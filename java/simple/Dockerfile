@@ -5,7 +5,7 @@ RUN apk add openjdk11
 
 # Move code
 WORKDIR /app
-COPY Hello.java .
+COPY . .
 
 # Compile
 RUN javac Hello.java
