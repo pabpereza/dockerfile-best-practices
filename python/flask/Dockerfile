@@ -10,18 +10,25 @@ COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
 
+<<<<<<< HEAD
 FROM python:slim
 
 #Configure path and python environment
 WORKDIR /workspace
 COPY app.py .
 
+=======
+>>>>>>> 0d38f67ff495fb8b2087896677ab563841c1148c
 # Create a user to run the application with bash shell and home directory
 RUN useradd -ms /bin/bash apiuser 
 USER apiuser
 
+#Create workdir and copy all the code
+WORKDIR /workspace
+COPY --chown=apiuser app.py .
+
 # Copy the Python dependencies from the builder image and set the PATH
-COPY --from=builder /root/.local /home/apiuser/.local
+COPY --chown=apiuser --from=builder /root/.local /home/apiuser/.local
 ENV PATH=/home/apiuser/.local/bin:$PATH
 
 # Run the flask application
