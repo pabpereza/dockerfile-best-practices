@@ -1,0 +1,17 @@
+# Select the latest Node.js image from Docker Hub
+FROM node:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the application files into the working directory
+COPY . .
+
+# Run the 'npm install' command to install dependencies
+RUN npm install
+
+# Expose a port to make the application accessible from outside the container
+EXPOSE 3000
+
+# Run the 'npm start' command to start the application
+ENTRYPOINT ["node", "index.js"]

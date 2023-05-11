@@ -9,8 +9,9 @@ RUN apt update &&  apt-get -y install rustc cargo
 COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
-FROM python:slim
 
+
+FROM python:slim
 
 #Configure path and python environment
 WORKDIR /workspace

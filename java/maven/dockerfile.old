@@ -1,0 +1,19 @@
+# Use an official Maven runtime as a parent image
+FROM maven:3.8.1-openjdk-11
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the entire project source code to the working directory
+COPY . .
+
+# Download all dependencies defined in the pom.xml file
+RUN mvn dependency:go-offline
+
+# Build the application using Maven
+RUN mvn package
+
+
+# Set the command to run the application when the container starts
+CMD ["java", "-jar", "App.jar"]
+
