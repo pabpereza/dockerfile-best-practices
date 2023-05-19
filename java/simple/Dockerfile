@@ -22,5 +22,7 @@ RUN addgroup -S app && adduser -S app -G app
 WORKDIR /app
 COPY --chown=app:app --from=builder /app/Hello.class .
 
+USER app
+
 # Execute
 ENTRYPOINT ["java","Hello"]

@@ -1,4 +1,4 @@
-# Multi Stage Dockerfiles examples
+# Curated Dockerfiles examples
 This repository contains examples of Dockerfiles using the docker multi stage build feature. This approach allows to build a Docker image with a minimal footprint, by copying only the necessary files from the build stage to the final image and using non-root user to run the application.
 
 
