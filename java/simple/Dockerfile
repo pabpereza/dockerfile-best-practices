@@ -10,14 +10,17 @@ COPY . .
 # Compile
 RUN javac Hello.java
 
-
 # Start a clean image
 FROM alpine 
 
+# Install jre
 RUN apk add openjdk11-jre
 
+# Add new user and group
+RUN addgroup -S app && adduser -S app -G app
+
 WORKDIR /app
-COPY --from=builder /app/Hello.class .
+COPY --chown=app:app --from=builder /app/Hello.class .
 
 # Execute
 ENTRYPOINT ["java","Hello"]
