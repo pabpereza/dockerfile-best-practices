@@ -10,12 +10,11 @@ COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
 
-# 
-FROM python:slim AS runner
 
-# Create a user to run the application with bash shell and home directory
-RUN useradd -ms /bin/bash apiuser 
-USER apiuser
+FROM alpine AS runner
+
+# Install python
+RUN apk add python3
 
 #Create workdir and copy all the code
 WORKDIR /workspace
@@ -24,6 +23,10 @@ COPY --chown=apiuser app.py .
 # Copy the Python dependencies from the builder image and set the PATH
 COPY --chown=apiuser --from=builder /root/.local /home/apiuser/.local
 ENV PATH=/home/apiuser/.local/bin:$PATH
+
+# Create a user to run the application with bash shell and home directory
+RUN adduser -D apiuser 
+USER apiuser
 
 # Run the flask application
 EXPOSE 80
