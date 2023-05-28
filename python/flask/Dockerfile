@@ -10,6 +10,9 @@ COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
 
+# 
+FROM python:slim AS runner
+
 # Create a user to run the application with bash shell and home directory
 RUN useradd -ms /bin/bash apiuser 
 USER apiuser
