@@ -10,15 +10,6 @@ COPY requirements.txt .
 RUN pip install --user -r requirements.txt
 
 
-<<<<<<< HEAD
-FROM python:slim
-
-#Configure path and python environment
-WORKDIR /workspace
-COPY app.py .
-
-=======
->>>>>>> 0d38f67ff495fb8b2087896677ab563841c1148c
 # Create a user to run the application with bash shell and home directory
 RUN useradd -ms /bin/bash apiuser 
 USER apiuser
