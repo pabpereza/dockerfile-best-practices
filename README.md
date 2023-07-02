@@ -3,7 +3,7 @@ This repository contains examples of Dockerfiles using the [best practices that 
 
 For more information about multi stage builds, please refer to the [official documentation](https://docs.docker.com/develop/develop-images/multistage-build/).
 
-# Best practices and security checks that an imagen must comply with.
+# Best practices and security checks
 - [ ] Use a lightweight image.
 - [ ] Minimun number of layers.
 - [ ] Optimize build order.
