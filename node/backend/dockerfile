@@ -1,0 +1,17 @@
+FROM node:lts-alpine AS builder 
+
+WORKDIR /app
+
+RUN apk add --no-cache git make python3 g++
+COPY --chown=node:node ./package*.json . 
+RUN npm install ci 
+COPY . .
+
+FROM alpine AS runner 
+
+RUN apk add --update --no-cache nodejs
+USER node
+WORKDIR /app
+COPY --chown=node:node --from=builder /app/ . 
+
+CMD ["node","app.js"]
