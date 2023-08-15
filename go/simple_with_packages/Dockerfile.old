@@ -1,0 +1,17 @@
+FROM golang:1.21
+
+WORKDIR /app
+
+# Copy go.mod and go.sum to download dependencies
+COPY go.mod go.sum .
+
+# Download dependencies
+RUN go mod download
+
+# Copy source code
+COPY *.go .
+
+# Build
+RUN go build -o /app_bin
+
+ENTRYPOINT ["/app_bin"]
