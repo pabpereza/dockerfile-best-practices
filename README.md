@@ -22,8 +22,8 @@ For more information about multi stage builds, please refer to the [official doc
 ## Examples by language or technology
 * [Java](java/)
 * [Python](python/)
-* [Node](node/) WIP!!
-
+* [Node](node/)
+* [Go](go/)
 
 # How to use these examples
 Each example contains a Dockerfile and Dockerfile.old. The .old file contains simple Dockerfile without multi stage builds and the Dockerfile contains the multi stage build version. 
