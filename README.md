@@ -1,5 +1,5 @@
 # Curated Dockerfiles examples
-This repository contains examples of Dockerfiles using the [best practices that docker recommends](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#decouple-applications). This approach allows to build a Docker image with a minimal footprint, by copying only the necessary files from the build stage to the final image and using non-root user to run the application.
+This repository contains examples of Dockerfiles using the [best practices that docker recommends](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/). This approach allows to build a Docker image with a minimal footprint, by copying only the necessary files from the build stage to the final image and using non-root user to run the application.
 
 For more information about multi stage builds, please refer to the [official documentation](https://docs.docker.com/develop/develop-images/multistage-build/).
 
