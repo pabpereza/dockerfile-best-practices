@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.old
+    ports:
+      - 8080:5000
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /workspace/
+          ignore:
+            - requirements.txt
+        - action: rebuild
+          path: requirements.txt

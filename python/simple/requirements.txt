@@ -1,0 +1,6 @@
+Flask_Security_Too
+flask_mongoengine
+Flask
+Flask_RESTful
+flask_security
+pycryptodomex
