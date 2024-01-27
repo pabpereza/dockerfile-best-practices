@@ -1,4 +1,4 @@
-FROM alpine:3.18.3 AS builder
+FROM alpine:3.18.6 AS builder
 
 # Install dependencies
 RUN apk add openjdk11 
@@ -11,7 +11,7 @@ COPY . .
 RUN javac Hello.java
 
 # Start a clean image
-FROM alpine:3.18.3 
+FROM alpine:3.18.6 
 
 # Install jre
 RUN apk add openjdk11-jre
