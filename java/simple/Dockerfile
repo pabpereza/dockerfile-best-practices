@@ -1,5 +1,6 @@
 FROM alpine:3.18.6 AS builder
 
+
 # Install dependencies
 RUN apk add openjdk11 
 
