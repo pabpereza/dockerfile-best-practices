@@ -11,7 +11,8 @@ RUN pip install --user -r requirements.txt
 
 
 
-FROM alpine:3.18.5 AS runner
+
+FROM alpine:3.18.6 AS runner
 
 # Install python
 RUN apk add python3
